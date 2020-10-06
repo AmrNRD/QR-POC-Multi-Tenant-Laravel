@@ -1,0 +1,57 @@
+[
+    {
+        "name": "admins",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "route": "admins.index",
+        "permission": "view-admins",
+        "children": [
+            {
+                "permission": "view-admins",
+                "name": "list admins",
+                "route": "admins.index"
+            },
+            {
+                "permission": "create-admin",
+                "name": "create new admin",
+                "route": "admins.create"
+            }
+        ]
+    },
+    {
+        "name": "roles",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "route": "roles.index",
+        "permission": "view-roles",
+        "children": [
+            {
+                "name": "list roles",
+                "permission": "view-roles",
+                "route": "roles.index"
+            },
+            {
+                "name": "create new role",
+                "permission": "create-roles",
+                "route": "roles.create"
+            }
+        ]
+    },
+    {
+        "name": "companies",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "route": "companies.index",
+        "permission": "view-companies",
+        "children": [
+            {
+                "permission": "view-companies",
+                "name": "list companies",
+                "route": "companies.index"
+            },
+            {
+                "permission": "create-companies",
+                "name": "create new company",
+                "route": "companies.create"
+            }
+        ]
+    }
+]
+

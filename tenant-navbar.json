@@ -1,0 +1,119 @@
+[
+    {
+        "name": "users",
+        "icon": "nav-icon fas fa-user",
+        "route": "users.index",
+        "permission": "view-users",
+        "children": [
+            {
+                "name": "list users",
+                "route": "users.index",
+                "permission": "view-users"
+            },
+            {
+                "name": "create new user",
+                "route": "users.create",
+                "permission": "create-users"
+            }
+        ]
+    },
+    {
+        "name": "employees",
+        "icon": "nav-icon fas fa-users",
+        "route": "employees.index",
+        "permission": "view-employees",
+        "children": [
+            {
+                "name": "list employees",
+                "route": "employees.index",
+                "permission": "view-employees"
+            },
+            {
+                "name": "create new employee",
+                "route": "employees.create",
+                "permission": "create-employee"
+            }
+        ]
+    },
+    {
+        "name": "shifts",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "route": "shifts.index",
+        "permission": "view-shifts",
+        "children": [
+            {
+                "name": "list shifts",
+                "route": "shifts.index",
+                "permission": "view-shifts"
+            },
+            {
+                "name": "create new shift",
+                "route": "shifts.create",
+                "permission": "create-shifts"
+            }
+        ]
+    },
+    {
+        "name": "employee shifts",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "route": "employee_shifts.index",
+        "permission": "view-employee-shifts",
+        "children": [
+            {
+                "name": "list employee shifts",
+                "route": "employee_shifts.index",
+                "permission": "view-employee-shifts"
+            },
+            {
+                "name": "create new employee shift",
+                "route": "employee_shifts.create",
+                "permission": "create-employee-shifts"
+            }
+        ]
+    },
+    {
+        "name": "attendances",
+        "icon": "nav-icon fas fa-briefcase",
+        "route": "attendances.index",
+        "permission": "view-attendances",
+        "children": [
+            {
+                "name": "list attendances",
+                "route": "attendances.index",
+                "permission": "view-attendances"
+            }
+        ]
+    },
+    {
+        "name": "holidays",
+        "icon": "nav-icon fas fa-calendar-week",
+        "route": "holidays.index",
+        "permission": "view-holidays",
+        "children": [
+            {
+                "name": "list holidays",
+                "route": "holidays.index",
+                "permission": "view-holidays"
+            },
+            {
+                "name": "create new holidays",
+                "route": "holidays.create",
+                "permission": "create-holidays"
+            }
+        ]
+    },
+    {
+        "name": "devices",
+        "icon": "nav-icon fas fa-tablet",
+        "route": "devices.index",
+        "permission": "view-devices",
+        "children": [
+            {
+                "name": "list devices",
+                "route": "devices.index",
+                "permission": "view-devices"
+            }
+        ]
+    }
+
+]
