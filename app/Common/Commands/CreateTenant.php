@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 class CreateTenant extends Command
 {
     protected $signature = 'tenant:create {company} {admin}';
-    protected $description = 'Creates a tenant with the provided name and email address e.g. php artisan tenant:create boise boise@example.com';
+    protected $description = 'Creates a tenant with the company and admin';
 
     /**
      * @var AdminRepository
@@ -70,8 +70,6 @@ class CreateTenant extends Command
         $this->createAdminTenantAccount($admin, $website);
         $dns_successful=$this->registerDNSForTenantAccount($website);
 
-        $this->info("Tenant '{$company->name}' is created and is now accessible at {$website->hostnames()->first()->fqdn}");
-        $this->info("Admin {$admin->name} can log in using his password password");
     }
 
 
@@ -147,13 +145,14 @@ class CreateTenant extends Command
      */
     private function registerDNSForTenantAccount(Website $website):bool
     {
+        $baseUrl = env('APP_BASE_URL');
         $response = Http::withHeaders([
             'X-Auth-Email'=>env('DNS_X_AUTH_EMAIL'),
             'X-Auth-Key'=>env('DNS_X_AUTH_KEY'),
             'Content-Type'=>'application/json',
         ])->post('https://api.cloudflare.com/client/v4/zones/'.env('DNS_ZONE_ID').'/dns_records', [
             'type' => 'A',
-            'name' => "{$$website->hostnames()->first()->fqdn}",
+            'name' => $website->company->slug.".".$baseUrl,
             'content' => "94.237.100.175",
             'tls'=>120,
             'proxied'=>false
