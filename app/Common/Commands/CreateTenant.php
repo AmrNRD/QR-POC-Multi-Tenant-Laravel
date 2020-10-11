@@ -153,7 +153,7 @@ class CreateTenant extends Command
             'Content-Type'=>'application/json',
         ])->post('https://api.cloudflare.com/client/v4/zones/'.env('DNS_ZONE_ID').'/dns_records', [
             'type' => 'A',
-            'name' => $website->company->slug,
+            'name' => "{$$website->hostnames()->first()->fqdn}",
             'content' => "94.237.100.175",
             'tls'=>120,
             'proxied'=>false

@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="607e3a42-e5a0-4993-965d-3c4bb9cd8bc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Common/Criteria/UserCriteria.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Common/Commands/CreateTenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Common/Commands/CreateTenant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Entities/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Entities/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Http/Requests/Company/CompanyStoreFormRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Http/Requests/Company/CompanyStoreFormRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Http/Requests/Company/CompanyUpdateFormRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Http/Requests/Company/CompanyUpdateFormRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Repositories/Eloquent/CompanyRepositoryEloquent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Repositories/Eloquent/CompanyRepositoryEloquent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/_partials/_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/_partials/_fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/_partials/_scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/_partials/_scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Company/Resources/Views/company/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Entities/EmployeeDevices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Entities/EmployeeDevices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Http/Requests/Employee/EmployeeStoreFormRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Http/Requests/Employee/EmployeeStoreFormRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/_partials/_fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/_partials/_fields.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/_partials/_scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/_partials/_scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/buttons/actions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/buttons/actions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Employee/Resources/Views/employee/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/Shift/Resources/Views/shift/_partials/_scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/Shift/Resources/Views/shift/_partials/_scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/User/Entities/Traits/Relations/UserRelations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/User/Entities/Traits/Relations/UserRelations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/User/Http/Controllers/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/User/Http/Controllers/Auth/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Tenant/User/Http/Services/RegisterUserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Tenant/User/Http/Services/RegisterUserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/tenancy.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/tenancy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tenant-navbar.json" beforeDir="false" afterPath="$PROJECT_DIR$/tenant-navbar.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +256,7 @@
       <workItem from="1602195787254" duration="7472000" />
       <workItem from="1602231004857" duration="1334000" />
       <workItem from="1602247031031" duration="4314000" />
-      <workItem from="1602393709173" duration="6704000" />
+      <workItem from="1602393709173" duration="7575000" />
     </task>
     <servers />
   </component>
