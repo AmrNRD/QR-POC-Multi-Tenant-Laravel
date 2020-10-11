@@ -55,6 +55,23 @@
 
 
 @if ($action == 'create')
+    <div class="input-group mt-3">
+        <input v-model="fData.slug" type="text" class="form-control {{$errors->has('slug') ? 'is-invalid':''}}" value="{{ ($action == 'edit') ? $edit->slug : old('slug') }}" placeholder="Domain slug">
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-user"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @if($errors->has('slug'))
+                <div class="alert alert-danger w-100 m-0" role="alert">
+                    {{$errors->first('slug')}}
+                </div>
+            @endif
+        </div>
+    </div>
     <br>
     <br>
     <label>Admin</label>

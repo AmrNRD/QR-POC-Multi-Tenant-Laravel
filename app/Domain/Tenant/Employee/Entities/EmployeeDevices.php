@@ -10,7 +10,7 @@ use Hyn\Tenancy\Traits\UsesTenantConnection;
 
 class EmployeeDevices extends Model
 {
-    use EmployeeDevicesRelations, EmployeeDevicesAttributes,UsesTenantConnection;
+    use EmployeeDevicesRelations, EmployeeDevicesAttributes, UsesTenantConnection;
 
     /**
      * @var array
@@ -51,7 +51,7 @@ class EmployeeDevices extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'firebase_token', 'device_type', 'device_details','employee_id', 'active'
     ];
 
     /**

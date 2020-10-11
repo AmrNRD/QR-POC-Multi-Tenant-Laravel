@@ -22,11 +22,12 @@
                     <table class="table table-striped table-inverse">
                         <thead class="thead-inverse">
                             <tr>
-                                <th>id</th>
-                                <th>photo</th>
-                                <th>name</th>
-                                <th>date of birth</th>
-                                <th>added at</th>
+                                <th>ID</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Date of birth</th>
+                                <th>Added at</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +38,7 @@
                                 <td>{{$item->user->name}}</td>
                                 <td>{{$item->date_of_birth}}</td>
                                 <td>{{$item->created_at}}</td>
+                                <td> @include("{$alias}::employee.buttons.actions", ['id' => $item->id,'name'=>$item->name])</td>
                             </tr>
                             @endforeach
                         </tbody>

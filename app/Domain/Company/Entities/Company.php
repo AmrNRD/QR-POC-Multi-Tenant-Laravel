@@ -54,6 +54,7 @@ class Company extends Model
         'email',
         'address',
         'active',
+        'slug'
     ];
 
     /**

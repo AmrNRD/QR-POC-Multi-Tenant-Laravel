@@ -26,6 +26,7 @@
                                 <th>name</th>
                                 <th>email</th>
                                 <th>address</th>
+                                <th>Domain slug</th>
                                 <th>active</th>
                                 <th>actions</th>
                             </tr>
@@ -37,6 +38,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->address}}</td>
+                                <td>{{$item->slug}}</td>
                                 <td><toggle-button color="#007bff" @change="onChange({{$item->id}},$event)" :value="{{$item->active=="active"?"true":"false"}}"></toggle-button></td>
                                 <td>   @include("{$alias}::company.buttons.actions",['id' => $item->id,'name'=>$item->name])</td>
                             </tr>

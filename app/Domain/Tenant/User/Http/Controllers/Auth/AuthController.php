@@ -13,6 +13,7 @@ use App\Domain\Tenant\User\Entities\User;
 use App\Domain\Tenant\User\Http\Requests\User\UserAPILoginFormRequest;
 use App\Domain\Tenant\User\Http\Resources\User\UserResource;
 use App\Domain\Tenant\User\Http\Services\RegisterAdminService;
+use App\Domain\Tenant\User\Http\Services\RegisterDeviceService;
 use App\Domain\Tenant\User\Repositories\Contracts\UserRepository;
 use App\Domain\User\Services\RegisterEmployeeDeviceService;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Infrastructure\Http\AbstractControllers\BaseController as Controller;
 use Joovlly\DDD\Traits\Responder;
+use Joselfonseca\LighthouseGraphQLPassport\GraphQL\Mutations\Register;
 
 
 class AuthController extends Controller
@@ -32,9 +34,9 @@ class AuthController extends Controller
     protected UserRepository $userRepository;
 
     /**
-     * @var RegisterAdminService
+     * @var RegisterDeviceService
      */
-    protected RegisterAdminService $registerDeviceService;
+    protected RegisterDeviceService $registerDeviceService;
 
     /**
      * @var RegisterEmployeeDeviceService
@@ -69,7 +71,7 @@ class AuthController extends Controller
      * @param RegisterAdminService $registerDeviceService
      * @param RegisterEmployeeDeviceService $registerEmployeeDeviceService
      */
-    public function __construct(UserRepository $userRepository, RegisterAdminService $registerDeviceService, RegisterEmployeeDeviceService $registerEmployeeDeviceService)
+    public function __construct(UserRepository $userRepository, RegisterDeviceService $registerDeviceService, RegisterEmployeeDeviceService $registerEmployeeDeviceService)
     {
         $this->userRepository = $userRepository;
         $this->registerDeviceService = $registerDeviceService;

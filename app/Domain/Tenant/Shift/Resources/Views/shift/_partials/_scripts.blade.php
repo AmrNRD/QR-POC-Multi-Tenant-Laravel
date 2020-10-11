@@ -5,12 +5,12 @@
         data: {
             fData: {
                 name: '{{ getData($data, 'name') }}',
-                name: '{{ getData($data, 'threshold') }}',
-                name: '{{ getData($data, 'start_at') }}',
-                name: '{{ getData($data, 'end_at') }}',
-                name: '{{ getData($data, 'start_date') }}',
-                name: '{{ getData($data, 'end_date') }}',
-                name: '{{ getData($data, 'type') }}',
+                threshold: '{{ getData($data, 'threshold') }}',
+                start_at: '{{ getData($data, 'start_at') }}',
+                end_at: '{{ getData($data, 'end_at') }}',
+                start_date: '{{ getData($data, 'start_date') }}',
+                end_date: '{{ getData($data, 'end_date') }}',
+                type: '{{ getData($data, 'type') }}',
                 /**/
                 @if ($action == 'edit')
                     _method: 'PATCH',

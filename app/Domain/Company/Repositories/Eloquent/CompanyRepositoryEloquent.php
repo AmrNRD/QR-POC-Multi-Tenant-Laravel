@@ -28,6 +28,7 @@ class CompanyRepositoryEloquent extends BaseRepository implements CompanyReposit
         'email',
         'address',
         'active',
+        'slug'
     ];
 
     /**
@@ -54,6 +55,7 @@ class CompanyRepositoryEloquent extends BaseRepository implements CompanyReposit
         'email',
         'address',
         'active',
+        'slug'
     ];
 
     /**

@@ -1,10 +1,13 @@
 <script>
-    
+
     var vue = new Vue({
         el: '#kt_page_portlet',
         data: {
             fData: {
-                name: '{{ getData($data, 'name') }}',
+                user_id: '{{ getData($data, 'user_id') }}',
+                gender: '{{ getData($data, 'gender') }}',
+                address: '{{ getData($data, 'address') }}',
+                date_of_birth: '{{ getData($data, 'date_of_birth') }}',
                 /**/
                 @if ($action == 'edit')
                     _method: 'PATCH',
@@ -22,28 +25,28 @@
                 let request = {
 
                     method: "post",
-                    
+
                     url:'{{ $submitUrl }}',
-                    
+
                     data:this.fData,
 
                     toaster:{
                         success:{
-                            title:"User Saved",
-                            subtitle:"User",
-                            body:"User has been inserted successfully in the system"
+                            title:"Employee Saved",
+                            subtitle:"Employee",
+                            body:"Employee has been inserted successfully in the system"
                         },
                         fail:{
-                            title:"Process Failer",
+                            title:"Failed",
                             subtitle:"Fail",
-                            body:"User has not been inserted successfully in the system"
+                            body:"Employee has not been inserted successfully in the system"
                         }
                     }
                 }
                 if(option == 'continue'){
                     request.redirect = '{{ route("employees.create") }}'
                 }else{
-                    request.redirect = '{{ route("employees.show", ":id") }}'
+                    request.redirect = '{{ route("employees.index") }}'
                 }
 
                 this.isLoading = true
@@ -55,7 +58,7 @@
                     },(err)=>{
                         this.isLoading = false
                     });
-                
+
             },
         },
     });

@@ -10,8 +10,8 @@ use App\Domain\Tenant\Attendance\Repositories\Contracts\DevicesRepository;
 use App\Domain\Tenant\Employee\Entities\EmployeeDevices;
 use App\Domain\Tenant\Employee\Repositories\Contracts\EmployeeDevicesRepository;
 use App\Domain\Tenant\User\Entities\User;
+use App\Domain\Tenant\User\Repositories\Contracts\UserRepository;
 use Illuminate\Support\Arr;
-use Laravel\Passport\Bridge\UserRepository;
 
 /**
  * Class RegisterDeviceService.

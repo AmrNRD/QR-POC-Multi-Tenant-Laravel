@@ -31,8 +31,9 @@
             {
                 "name": "create new employee",
                 "route": "employees.create",
-                "permission": "create-employee"
+                "permission": "create-employees"
             }
+
         ]
     },
     {

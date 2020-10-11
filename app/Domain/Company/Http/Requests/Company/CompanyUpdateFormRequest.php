@@ -2,6 +2,7 @@
 
 namespace App\Domain\Company\Http\Requests\Company;
 use App\Domain\Company\Http\Requests\Company\CompanyStoreFormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyUpdateFormRequest extends CompanyStoreFormRequest
 {
@@ -12,7 +13,7 @@ class CompanyUpdateFormRequest extends CompanyStoreFormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->hasRole('update-companies');
     }
 
     /**

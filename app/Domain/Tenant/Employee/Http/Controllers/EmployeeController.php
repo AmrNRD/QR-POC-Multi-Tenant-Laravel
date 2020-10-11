@@ -2,6 +2,9 @@
 
 namespace App\Domain\Tenant\Employee\Http\Controllers;
 
+use App\Common\Criteria\AuthEmployeeCriteria;
+use App\Common\Criteria\UserCriteria;
+use App\Domain\Tenant\User\Repositories\Contracts\UserRepository;
 use App\Infrastructure\Http\AbstractControllers\BaseController as Controller;
 use App\Domain\Tenant\Employee\Http\Requests\Employee\EmployeeStoreFormRequest;
 use App\Domain\Tenant\Employee\Http\Requests\Employee\EmployeeUpdateFormRequest;
@@ -19,7 +22,12 @@ class EmployeeController extends Controller
     /**
      * @var EmployeeRepository
      */
-    protected $employeeRepository;
+    protected EmployeeRepository $employeeRepository;
+
+    /**
+     * @var UserRepository
+     */
+    protected UserRepository $userRepository;
 
     /**
      * View Path
@@ -45,10 +53,12 @@ class EmployeeController extends Controller
 
     /**
      * @param EmployeeRepository $employeeRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(EmployeeRepository $employeeRepository)
+    public function __construct(EmployeeRepository $employeeRepository,UserRepository $userRepository)
     {
         $this->employeeRepository = $employeeRepository;
+        $this->userRepository=$userRepository;
     }
 
     /**
@@ -80,9 +90,12 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        $users=$this->userRepository->pushCriteria(new UserCriteria())->all();
         $this->setData('title', __('main.add') . ' ' . __('main.employee'), 'web');
 
         $this->setData('alias', $this->domainAlias,'web');
+
+        $this->setData('users', $users,'web');
 
         $this->addView("{$this->domainAlias}::{$this->viewPath}.create");
 

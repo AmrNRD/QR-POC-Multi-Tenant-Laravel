@@ -21,5 +21,7 @@ return [
     'company'=>"Company",
     "employee-shift"=>"Employee Shift",
     "employee-shifts"=>"Employee Shifts",
-    'admin'=>'Admin'
+    'admin'=>'Admin',
+    'employees'=>'Employees',
+    'employee'=>'Employee'
 ];

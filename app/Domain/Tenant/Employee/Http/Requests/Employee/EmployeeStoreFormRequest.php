@@ -24,7 +24,10 @@ class EmployeeStoreFormRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'        => ['required', 'string', 'max:255'],
+            'user_id'        => ['required'],
+            'gender'=>['nullable','string'],
+            'address' => ['nullable','string'],
+            'date_of_birth' => ['nullable', 'date'],
         ];
         return $rules;
     }

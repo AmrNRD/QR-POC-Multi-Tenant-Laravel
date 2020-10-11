@@ -1,13 +1,19 @@
-<span class="dropdown">
-  <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-      <i class="la la-ellipsis-h"></i>
-  </a>
+@if(\Illuminate\Support\Facades\Auth::user()->hasRole('update-employees')||\Illuminate\Support\Facades\Auth::user()->hasRole('deactivate-employees'))
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            <i class="la la-ellipsis-h"></i> Actions
+        </button>
   <div class="dropdown-menu dropdown-menu-right">
-      <a title="{{ __('main.show') }}" class="dropdown-item" href="{{ route('employees.show', [$id]) }}"><i class="la la-eye"></i> {{ trans('main.show') }} {{ trans('main.documents') }} </a>
-      <a title="{{ __('main.edit') }}" class="dropdown-item" href="{{ route('employees.edit', [$id]) }}"><i class="la la-edit"></i> {{ trans('main.edit') }} {{ trans('main.documents') }} </a>
-      <a title="{{ __('main.delete') }}" class="dropdown-item" href="{{ route('employees.destroy', [$id]) }}" data-toggle="modal" data-target="#delete_{{$id}}"><i class="la la-trash"></i> {{ trans('main.delete') }} {{ trans('main.documents') }} </a>
+      <a title="{{ __('main.show') }}" class="dropdown-item" href="{{ route('employees.show', [$id]) }}"><i class="la la-eye"></i> {{ trans('main.show') }} {{ trans('main.employee') }} </a>
+         @if(\Illuminate\Support\Facades\Auth::user()->hasRole('update-employees'))
+          <a title="{{ __('main.edit') }}" class="dropdown-item" href="{{ route('employees.edit', [$id]) }}"><i class="la la-edit"></i> {{ trans('main.edit') }} {{ trans('main.employee') }} </a>
+        @endif
+      @if(\Illuminate\Support\Facades\Auth::user()->hasRole('deactivate-employees'))
+      <a title="{{ __('main.delete') }}" class="dropdown-item" href="{{ route('employees.destroy', [$id]) }}" data-toggle="modal" data-target="#delete_{{$id}}"><i class="la la-trash"></i> {{ trans('main.delete') }} {{ trans('main.employee') }} </a>
+      @endif
   </div>
-</span>
+    </div>
+@endif
 <!--begin::Modal-->
 <div class="modal fade" id="delete_{{$id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

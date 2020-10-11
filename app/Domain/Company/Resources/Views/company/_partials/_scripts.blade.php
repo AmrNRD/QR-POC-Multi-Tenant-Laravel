@@ -7,6 +7,7 @@
                 name: '{{ getData($data, 'name') }}',
                 email: '{{ getData($data, 'email') }}',
                 address: '{{ getData($data, 'address') }}',
+                slug: '{{ getData($data, 'slug') }}',
                 admin:{
                     name: '{{ getData($data, 'name') }}',
                     email: '{{ getData($data, 'email') }}',

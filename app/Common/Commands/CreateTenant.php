@@ -14,6 +14,7 @@ use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
 use Hyn\Tenancy\Environment;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class CreateTenant extends Command
@@ -67,6 +68,7 @@ class CreateTenant extends Command
 
         $website = $this->registerTenant($admin,$company);
         $this->createAdminTenantAccount($admin, $website);
+        $dns_successful=$this->registerDNSForTenantAccount($website);
 
         $this->info("Tenant '{$company->name}' is created and is now accessible at {$website->hostnames()->first()->fqdn}");
         $this->info("Admin {$admin->name} can log in using his password password");
@@ -109,15 +111,15 @@ class CreateTenant extends Command
     }
 
     /**
-     * @param string $company_name
+     * @param string $company_slug
      * @param Website $website
      * @return Hostname
      */
-    private function createHostname(string $company_name,Website $website): Hostname
+    private function createHostname(string $company_slug,Website $website): Hostname
     {
         $hostname = new Hostname;
         $baseUrl = env('APP_BASE_URL');
-        $hostname->fqdn = "{$company_name}.{$baseUrl}";
+        $hostname->fqdn = "{$company_slug}.{$baseUrl}";
         $hostname->id = (string)Str::uuid();
         app(HostnameRepository::class)->attach($hostname, $website);
         $hostname->website_id = $website->id;
@@ -140,13 +142,36 @@ class CreateTenant extends Command
 
     /**
      * @param Admin $admin
+     * @param Website $website
+     * @return  bool
+     */
+    private function registerDNSForTenantAccount(Website $website):bool
+    {
+        $response = Http::withHeaders([
+            'X-Auth-Email'=>env('DNS_X_AUTH_EMAIL'),
+            'X-Auth-Key'=>env('DNS_X_AUTH_KEY'),
+            'Content-Type'=>'application/json',
+        ])->post('https://api.cloudflare.com/client/v4/zones/'.env('DNS_ZONE_ID').'/dns_records', [
+            'type' => 'A',
+            'name' => $website->company->slug,
+            'content' => "94.237.100.175",
+            'tls'=>120,
+            'proxied'=>false
+        ]);
+
+        return  $response->successful();
+    }
+
+
+    /**
+     * @param Admin $admin
      * @param Company $company
      * @return Website
      */
     private function registerTenant(Admin $admin,Company $company):Website
     {
         $website = $this->createWebsite($admin->id,$company->id);
-        $hostname = $this->createHostname($company->name,$website);
+        $hostname = $this->createHostname($company->slug,$website);
         return $website;
     }
 

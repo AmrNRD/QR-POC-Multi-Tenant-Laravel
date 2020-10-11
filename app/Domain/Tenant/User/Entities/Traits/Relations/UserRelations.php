@@ -2,10 +2,10 @@
 
 namespace App\Domain\Tenant\User\Entities\Traits\Relations;
 
-use App\Domain\Admin\Entities\Role;
 use App\Domain\Tenant\Attendance\Entities\Device;
 use App\Domain\Tenant\Employee\Entities\Employee;
 use App\Domain\Tenant\Employee\Entities\EmployeeDevices;
+use App\Domain\Tenant\User\Entities\Role;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
