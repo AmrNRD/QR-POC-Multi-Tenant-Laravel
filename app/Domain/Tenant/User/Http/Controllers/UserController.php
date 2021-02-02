@@ -10,6 +10,7 @@ use App\Domain\Tenant\User\Http\Requests\User\UserStoreFormRequest;
 use App\Domain\Tenant\User\Http\Requests\User\UserUpdateFormRequest;
 use App\Domain\Tenant\User\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Joovlly\DDD\Traits\Responder;
 use App\Domain\Tenant\User\Entities\User;
 use App\Domain\Tenant\User\Http\Resources\User\UserResource;

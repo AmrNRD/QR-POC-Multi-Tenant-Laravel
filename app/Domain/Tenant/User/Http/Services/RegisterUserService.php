@@ -12,6 +12,7 @@ use App\Domain\Tenant\Employee\Repositories\Contracts\EmployeeDevicesRepository;
 use App\Domain\Tenant\User\Entities\User;
 use App\Domain\Tenant\User\Repositories\Contracts\UserRepository;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class RegisterDeviceService.
@@ -43,6 +44,7 @@ class RegisterUserService
     public function register(array $data):User
     {
         $role_id=$data['role_id'];
+        $data['password'] = Hash::make($data['password']);
         $admin=$this->userRepository->create(Arr::except($data, ['role_id']));
         $role=$this->roleRepository->findWhere(["id"=>$role_id])->first();
         $admin->roles()->attach($role);

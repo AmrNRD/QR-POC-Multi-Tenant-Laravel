@@ -94,7 +94,7 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials))
             return response()->json(['message' => 'Invalid email or password.'], 422);
-        else if ($this->isActiveCompany())
+        if ($this->isActiveCompany())
             return response()->json(['message' => 'The system is deactivated currently please contact joovlly.'], 403);
 
         $user = $request->user();

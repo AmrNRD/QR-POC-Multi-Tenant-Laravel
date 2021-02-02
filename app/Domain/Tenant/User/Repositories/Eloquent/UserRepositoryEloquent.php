@@ -136,8 +136,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     /**
      * Create New Entity.
      *
-     * @param  array $data
+     * @param array $data
      * @return Model
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function create(array $data) {
         $data['password'] = Hash::make($data['password']);

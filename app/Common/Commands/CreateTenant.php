@@ -3,6 +3,7 @@ namespace App\Common\Commands;
 
 use App\Domain\Admin\Entities\Admin;
 use App\Domain\Admin\Repositories\Contracts\AdminRepository;
+use App\Domain\Admin\Repositories\Contracts\RoleRepository;
 use App\Domain\Company\Entities\Company;
 use App\Domain\Company\Repositories\Contracts\CompanyRepository;
 use App\Domain\Tenant\User\Entities\User;
@@ -36,6 +37,11 @@ class CreateTenant extends Command
      * @var CompanyRepository
      */
     protected CompanyRepository $companyRepository;
+
+    /**
+     * @var RoleRepository
+     */
+    protected RoleRepository $roleRepository;
 
 
     /**
@@ -134,7 +140,10 @@ class CreateTenant extends Command
     private function createAdminTenantAccount(Admin $admin,Website $website):User
     {
         app(Environment::class)->tenant($website);
-        return $this->userRepository->create(['name' => $admin->name, 'email' => $admin->email, 'password' => $admin->password]);
+        $user=$this->userRepository->create(['name' => $admin->name, 'email' => $admin->email, 'password' => $admin->password],false);
+        $role=$this->roleRepository->findWhere(["slug"=>'super_admin'])->first();
+        $user->roles()->attach($role);
+        return $user;
     }
 
 

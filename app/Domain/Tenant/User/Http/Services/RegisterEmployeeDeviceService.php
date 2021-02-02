@@ -35,7 +35,7 @@ class RegisterEmployeeDeviceService {
      * @param string $type
      * @param String|null $firebase_token
      * @param String|null $platform
-     * @return  EmployeeDevices $device
+     * @return  EmployeeDevices|null $device
      */
     public function register(User $user, String $firebase_token = null, String $platform = null): EmployeeDevices
     {
